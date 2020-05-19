@@ -1,0 +1,50 @@
+version: '3.5'
+
+networks:
+  backend:
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: app.Dockerfile
+    container_name: ${APP_NAME}-php
+    working_dir: /var/www
+    restart: unless-stopped
+    tty: true
+    environment:
+      SERVICE_NAME: app
+      SERVICE_TAGS: dev
+    volumes:
+      - ./:/var/www
+    networks:
+      - backend
+
+  web:
+    image: nginx:alpine
+    container_name: ${APP_NAME}-nginx
+    restart: unless-stopped
+    tty: true
+    volumes:
+      - ./:/var/www
+      - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
+    ports:
+      - 8888:80
+    networks:
+      - backend
+
+  mongo:
+    image: "mongo:3-stretch"
+    container_name: ${APP_NAME}-mongo
+    ports:
+      - 27017:27017
+    networks:
+      - backend
+
+  mongo-express:
+    image: "mongo-express:latest"
+    container_name: ${APP_NAME}-mongo-express-api
+    ports:
+      - 8081:8081
+    networks:
+      - backend
