@@ -31,7 +31,7 @@ class RestaurantQuery extends Query
     public function args(): array
     {
         return [
-            'id' => ['name' => 'id', 'type' => Type::int()],
+            'id' => ['name' => 'id', 'type' => Type::string()],
             'lat' => ['name' => 'lat', 'type' => Type::float()],
             'lng' => ['name' => 'lng', 'type' => Type::float()]
         ];

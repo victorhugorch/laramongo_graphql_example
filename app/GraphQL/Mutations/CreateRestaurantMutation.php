@@ -38,12 +38,12 @@ class CreateRestaurantMutation extends Mutation
     public function args(): array
     {
         return [
-            'id' => [
+            /*'id' => [
                 'name' => 'id',
                 'type' => Type::nonNull(Type::string()),
                 'description' => 'The restaurant identifier',
                 'rules' => ['required']
-            ],
+            ],*/
             'tradingName' => [
                 'name' => 'tradingName',
                 'type' => Type::nonNull(Type::string()),

@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'mongodb'),
 
     /*
     |--------------------------------------------------------------------------
@@ -39,9 +39,9 @@ return [
             'driver' => 'mongodb',
             'host' => env('DB_HOST', 'mongo'),
             'port' => env('DB_PORT', 27017),
-            'database' => env('DB_DATABASE', 'ze'),
+            'database' => env('DB_DATABASE', 'laramongo'),
             'options' => [
-                'database' =>  env('DB_DATABASE', 'ze') // sets the authentication database required by mongo 3
+                'database' =>  env('DB_DATABASE', 'restaurants') // sets the authentication database required by mongo 3
             ]
         ],
 
@@ -49,13 +49,13 @@ return [
             'driver' => 'mongodb',
             'host' => env('TESTING_DB_HOST', 'mongo'),
             'port' => env('TESTING_DB_PORT', 27017),
-            'database' => env('TESTING_DB_DATABASE', 'zetest')
+            'database' => env('TESTING_DB_DATABASE', 'laramongotest')
         ],
 
         'mongodb_dsn' => [
             'driver' => 'mongodb',
             'dsn' => env('DB_DSN'),
-            'database' => env('DB_DATABASE', 'ze'),
+            'database' => env('DB_DATABASE', 'laramongo'),
         ],
 
         'sqlite' => [

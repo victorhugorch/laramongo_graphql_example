@@ -13,7 +13,7 @@ class RestaurantCollectionSeeder extends Seeder
     public function run()
     {
         $jsonFile = file_get_contents(storage_path() . "/json/restaurants.json");
-        $restaurants = json_decode($jsonFile, true)['pdvs'];
+        $restaurants = json_decode($jsonFile, true);
 
         foreach ($restaurants as $restaurant) {
             DB::connection('mongodb')

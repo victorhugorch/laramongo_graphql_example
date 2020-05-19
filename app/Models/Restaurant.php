@@ -2,17 +2,22 @@
 
 namespace App\Models;
 
+use App\Traits\Uuids;
 use GraphQL\Type\Definition\Type;
-use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
 use Rebing\GraphQL\Support\Facades\GraphQL;
+use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
 
 class Restaurant extends Eloquent
 {
+    use Uuids;
+
     protected $connection = 'mongodb';
     protected $collection = 'restaurants';
+
     protected $fillable = ['id', 'tradingName', 'ownerName', 'document', 'coverageArea', 'address'];
 
     public $timestamps = false;
+    public $incrementing = false;
 
     public function fields() : array
     {

@@ -37,10 +37,9 @@ query FetchAllRestaurants {
   }
 }
 
-// todo: add uuid
-query FindRestaurantByID {
-  Restaurant(id: 123123) {
-    tradingName,
+query FindRestaurantByUuid {
+  Restaurants(id: "52643fae-0feb-3262-a393-7eb4aa1821c2") {
+    ownerName,
     address {
       type,
       coordinates
@@ -83,6 +82,15 @@ mutation restaurants {
   }
 }
 ```
+
+### Todo
+
+  * Authentication with JWT.
+  * Documentation files.
+  * Refactor messages error in GraphQL.
+  * Create an update mutation.
+  * Add more tests.
+
 
 #
 
